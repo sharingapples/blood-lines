@@ -7,9 +7,13 @@ class Input extends Component {
     const { label, id, ...other } = this.props;
 
     return (
-      <div>
-        { label && <label htmlFor={id}>{label}</label>}
-        <input id={id} {...other} />
+      <div className="row">
+        <div className="label">
+          { label && <label htmlFor={id}>{label}</label>}
+        </div>
+        <div className="input">
+          <input id={id} {...other} />
+        </div>
       </div>
     );
   }

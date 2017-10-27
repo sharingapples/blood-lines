@@ -29,8 +29,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className="header">
-          <h1 className="title">Blood-Lines</h1>
           <img src={Logo} className="logo" alt="logo" />
+          <div className="title">Blood - Lines</div>
           <button onClick={this.showForm}>Request Form</button>
           <button onClick={this.showList}>Requests</button>
         </header>

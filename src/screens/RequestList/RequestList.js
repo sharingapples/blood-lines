@@ -34,7 +34,7 @@ class RequestList extends Component {
     return (
       <div>
         {loading && <div className="loader" />}
-        <div className="title">Blood Transfusion Requests</div>
+        <div className="page-title">Blood Transfusion Requests</div>
         {items.map(item => (
           <RequestItem key={item.id} {...item} />
         ))}

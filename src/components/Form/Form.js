@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import './Form.css';
 
 class Form extends Component {
-  onSubmit = (e) => {
-    e.preventDefault();
+  onSubmit = () => {
+
   }
 
   render() {
