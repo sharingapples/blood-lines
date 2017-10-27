@@ -11,6 +11,12 @@ class RequestItem extends Component {
     ready: this.props.ready,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      ready: nextProps.ready,
+    });
+  }
+
   onReady = () => {
     const { id } = this.props;
     const { ready } = this.state;
