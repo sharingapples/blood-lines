@@ -2,8 +2,17 @@ import React from 'react';
 
 import Form, { Select, Input } from '../../components/Form';
 
+const defaultValue = {
+  bloodGroup: 'O',
+  bloodRhD: '+',
+  bloodType: 'RBC',
+  urgent: false,
+  consultant: 'Dr. Govind K. C.',
+  reason: '',
+};
+
 const RequestForm = () => (
-  <Form action="/api/requests" method="POST" onSubmit={this.onSubmit}>
+  <Form action="/api/requests" onSubmit={this.onSubmit} value={defaultValue}>
     <div className="page-title">Blood Transfusion Request</div>
     <Input label="Patient" type="text" name="patient" />
     <Select label="Blood Group" name="bloodGroup">
@@ -22,9 +31,9 @@ const RequestForm = () => (
       <option>Plasma</option>
     </Select>
     <Input label="Urgent" type="checkbox" name="urgent" />
-    <Input label="Consultant" type="text" name="consultant" defaultValue="Dr. Govinda K. C." />
+    <Input label="Consultant" type="text" name="consultant" />
     <Input label="Reason" type="text" name="reason" />
-    <Input type="submit" />
+    <button type="submit">Submit</button>
   </Form>
 );
 
