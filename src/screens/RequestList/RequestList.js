@@ -16,6 +16,14 @@ class RequestList extends Component {
   }
 
   componentWillMount() {
+    this.refresh();
+  }
+
+  componentWillUnmount() {
+    this.source.cancel();
+  }
+
+  refresh = () => {
     this.setState({ loading: true });
     axios.get('/api/requests', { cancelToken: this.source.token }).then(({ data }) => {
       this.setState({
@@ -25,15 +33,12 @@ class RequestList extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.source.cancel();
-  }
-
   render() {
     const { items, loading } = this.state;
     return (
       <div>
         {loading && <div className="loader" />}
+        <button onClick={this.refresh}>Refresh</button>
         <div className="page-title">Blood Transfusion Requests</div>
         {items.map(item => (
           <RequestItem key={item.id} {...item} />
