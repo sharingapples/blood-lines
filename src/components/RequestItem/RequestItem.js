@@ -7,18 +7,29 @@ import working from '../../assets/working.png';
 import './RequestItem.css';
 
 class RequestItem extends Component {
+  state = {
+    ready: this.props.ready,
+  };
+
   onReady = () => {
-    const { id, ready } = this.props;
+    const { id } = this.props;
+    const { ready } = this.state;
 
     axios.patch(`/api/requests/${id}`, {
       ready: !ready,
+    }).then(({ data }) => {
+      this.setState({
+        ready: data.ready,
+      });
     });
   }
 
   render() {
     const {
-      patient, bloodGroup, bloodRhD, bloodType, urgent, consultant, reason, ready,
+      patient, bloodGroup, bloodRhD, bloodType, urgent, consultant, reason
     } = this.props;
+
+    const { ready } = this.state;
 
     return (
       <div className={`request-item${urgent ? ' urgent' : ''}`}>
