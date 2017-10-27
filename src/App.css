@@ -36,6 +36,10 @@
   margin-bottom: 20px;
 }
 
+.page-title button {
+  float: right;
+}
+
 .header button {
   float: right;
   margin: 0px 15px;
