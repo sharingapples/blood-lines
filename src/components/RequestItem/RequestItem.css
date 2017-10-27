@@ -1,0 +1,62 @@
+.request-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  padding: 3px;
+  border-bottom: 1px solid #ccc;
+}
+
+.request-item.urgent {
+  background-color: #fcc;
+}
+
+.request-item .btn-status {
+  border: none;
+  background: none;
+  padding-top: 5px;
+}
+
+.btn-status img {
+  width: 40px;
+}
+
+.request-item .blood-group {
+  display: flex;
+  width: 60px;
+  height: 40px;
+  font-size: 16px;
+  background-color: red;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.request-item .blood-type {
+  display: flex;
+  width: 80px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #333;
+  color: white;
+  border-radius: 5px;
+  margin: 0px 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.request-item .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.request-item .item-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.request-item .consultant {
+  font-size: 12px;
+  color: #888;
+}
