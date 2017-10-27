@@ -2,6 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import connectField from './connectField';
+
+const FormSelect = connectField(onUpdate => ({
+  onChange: e => onUpdate(e.target.value),
+}))('select');
+
 const Select = (props) => {
   const { label, id, ...other } = props;
 
@@ -11,7 +17,7 @@ const Select = (props) => {
         { label && <label htmlFor={id}>{label}</label>}
       </div>
       <div className="input">
-        <select {...other} />
+        <FormSelect id={id} {...other} />
       </div>
     </div>
   );

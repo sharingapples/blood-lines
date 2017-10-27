@@ -16,6 +16,7 @@ class Form extends Component {
     return {
       registerField: (name, onUpdate) => {
         this.fields[name] = onUpdate;
+        console.log(name);
         onUpdate(this.value[name] || '');
 
         // Return the unregister method
