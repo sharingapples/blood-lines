@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
+import addRequest from '../../redux/actions/addRequest';
 import Form, { Select, Input } from '../../components/Form';
 
 const defaultValue = {
@@ -11,8 +14,8 @@ const defaultValue = {
   reason: '',
 };
 
-const RequestForm = () => (
-  <Form action="/api/requests" onSubmit={this.onSubmit} value={defaultValue}>
+const RequestForm = ({ onSubmit }) => (
+  <Form action="/api/requests" onSubmit={onSubmit} value={defaultValue}>
     <div className="page-title">Blood Transfusion Request</div>
     <Input label="Patient" type="text" name="patient" />
     <Select label="Blood Group" name="bloodGroup">
@@ -37,4 +40,15 @@ const RequestForm = () => (
   </Form>
 );
 
-export default RequestForm;
+RequestForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (record) => {
+    dispatch(addRequest(record));
+    alert('Record added successfully');
+  },
+});
+
+export default connect(null, mapDispatchToProps)(RequestForm);

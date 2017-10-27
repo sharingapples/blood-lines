@@ -37,13 +37,7 @@ class Form extends Component {
   onSubmit = (e) => {
     // Do not submit the data directly
     e.preventDefault();
-    axios({
-      method: this.props.method,
-      url: this.props.action,
-      data: this.value,
-    }).then(({ data }) => {
-      alert(`Success. ID: ${data.id}`);
-    });
+    this.props.onSubmit(this.value);
   };
 
   render() {
@@ -63,6 +57,7 @@ Form.propTypes = {
   value: PropTypes.object,
   method: PropTypes.string,
   action: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 Form.defaultProps = {
