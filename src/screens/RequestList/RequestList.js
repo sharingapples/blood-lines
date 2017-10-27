@@ -38,8 +38,10 @@ class RequestList extends Component {
     return (
       <div>
         {loading && <div className="loader" />}
-        <button onClick={this.refresh}>Refresh</button>
-        <div className="page-title">Blood Transfusion Requests</div>
+        <div className="page-title">
+          Blood Transfusion Requests
+          <button onClick={this.refresh}>Refresh</button>
+        </div>
         {items.map(item => (
           <RequestItem key={item.id} {...item} />
         ))}
