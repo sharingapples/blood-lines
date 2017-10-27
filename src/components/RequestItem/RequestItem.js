@@ -25,11 +25,11 @@ class RequestItem extends Component {
         <button onClick={this.onReady}>
           <img src={ready ? checked : working} />
         </button>
-        <span className="">{bloodGroup}{bloodRhD}</span>
-        <span className="">{bloodType}</span>
-        <span className="item-title">{patient}</span>
-        <span className="">Consultant: {consultant}</span>
-        <span className="">{reason}</span>
+        <div className="">{bloodGroup}{bloodRhD}</div>
+        <div className="">{bloodType}</div>
+        <div className="item-title">{patient}</div>
+        <div className="">Consultant: {consultant}</div>
+        <div className="">{reason}</div>
       </div>
     );
   }
