@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import checked from '../../assets/ready.png';
 import working from '../../assets/working.png';
+import './RequestItem.css';
 
 class RequestItem extends Component {
   onReady = () => {

@@ -4,6 +4,7 @@ import RequestForm from './screens/RequestForm';
 import RequestList from './screens/RequestList';
 
 import Logo from './assets/logo.png';
+import './App.css';
 
 class App extends Component {
   state = {
