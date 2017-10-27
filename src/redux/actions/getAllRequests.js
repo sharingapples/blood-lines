@@ -1,10 +1,13 @@
+import axios from 'axios';
 import ActionTypes from '../ActionTypes';
 
-const allRequests = require('../local.db.json').requests;
-
 export default function getAllRequests() {
-  return ({
-    type: ActionTypes.ALL_REQUESTS,
-    payload: allRequests,
-  });
+  return (dispatch) => {
+    axios.get('/api/requests').then(({ data }) => {
+      dispatch({
+        type: ActionTypes.ALL_REQUESTS,
+        payload: data,
+      });
+    });
+  };
 }
