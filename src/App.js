@@ -1,18 +1,42 @@
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RequestForm from './screens/RequestForm';
+import RequestList from './screens/RequestList';
+
+// import Logo from './assets/logo.png';
+// <img src={Logo} className="logo" alt="logo" />
+
 
 class App extends Component {
+  state = {
+    Screen: RequestList,
+  };
+
+  showForm = () => {
+    this.setState({
+      Screen: RequestForm,
+    });
+  }
+
+  showList = () => {
+    this.setState({
+      Screen: RequestList,
+    });
+  }
+
   render() {
+    const { Screen } = this.state;
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header className="header">
+          <h1 className="title">Title</h1>
+          <button onClick={this.showForm}>Request Form</button><br/>
+          <button onClick={this.showList}>Requests</button>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="body">
+          <Screen />
+        </div>
       </div>
     );
   }

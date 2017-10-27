@@ -1,7 +1,9 @@
-import React from 'react';
+import Form from './Form';
+import Input from './Input';
 
-const Form = props => (
-  <form {...props} />
-);
+Form.Input = Input;
+export {
+  Input,
+};
 
 export default Form;
