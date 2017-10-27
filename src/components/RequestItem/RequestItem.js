@@ -22,14 +22,14 @@ class RequestItem extends Component {
 
     return (
       <div className={`request-item${urgent ? ' urgent' : ''}`}>
-        <button onClick={this.onReady}>
+        <button className="btn-status" onClick={this.onReady}>
           <img src={ready ? checked : working} />
         </button>
-        <div className="">{bloodGroup}{bloodRhD}</div>
-        <div className="">{bloodType}</div>
+        <div className="blood-group">{bloodGroup}{bloodRhD}</div>
+        <div className="blood-type">{bloodType}</div>
         <div className="item-title">{patient}</div>
-        <div className="">Consultant: {consultant}</div>
-        <div className="">{reason}</div>
+        <div className="consultant">Consultant: {consultant}</div>
+        <div className="reason">{reason}</div>
       </div>
     );
   }
