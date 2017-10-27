@@ -26,6 +26,7 @@ class RequestItem extends Component {
           <img src={ready ? checked : working} />
         </button>
         <span className="">{bloodGroup}{bloodRhD}</span>
+        <span className="">{bloodType}</span>
         <span className="item-title">{patient}</span>
         <span className="">Consultant: {consultant}</span>
         <span className="">{reason}</span>

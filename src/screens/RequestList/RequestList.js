@@ -4,19 +4,29 @@ import axios from 'axios';
 import RequestItem from '../../components/RequestItem';
 
 class RequestList extends Component {
-  state = {
-    items: [],
-    loading: false,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      items: [],
+      loading: false,
+    };
+
+    this.source = axios.CancelToken.source();
+  }
 
   componentWillMount() {
     this.setState({ loading: true });
-    axios.get('/api/requests').then(({ data }) => {
+    axios.get('/api/requests', { cancelToken: this.source.token }).then(({ data }) => {
       this.setState({
         items: data,
         loading: false,
       });
     });
+  }
+
+  componentWillUnmount() {
+    this.source.cancel();
   }
 
   render() {
